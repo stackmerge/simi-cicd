@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="3b8c5ecb-c67a-4b5b-8c1d-3ad7b3820e31" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="eclerx-cicd-pocFlow" doc:id="86eca123-11f8-44f4-ab60-fdb9a1de6616" >
+		<http:listener doc:name="GET /hello" doc:id="e7dd91aa-e4c0-491b-a125-e7c9b74fb6fd" config-ref="HTTP_Listener_config" path="/hello"/>
+		<logger level="INFO" doc:name="Logger" doc:id="2c9796e3-4311-4dee-a8cb-8df80c970946" message="Flow started!!!"/>
+		<set-payload value="#['Welcome to eClerx CICD PoC!!!!']" doc:name="Set Payload" doc:id="64569870-b6aa-476b-8767-d3e10c65e8db" />
+	</flow>
+</mule>
