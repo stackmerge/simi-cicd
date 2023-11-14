@@ -1,11 +1,5 @@
 name: CloudHub 1.0 deployment using Maven
 
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
 jobs:
   buildAndDeployToCH1:
 
@@ -26,4 +20,4 @@ jobs:
         cache: maven
         
     - name: Build with Maven and Deploy to CH 1.0
-      run: mvn clean deploy -DmuleDeploy -s settings.xml -DworkerType=MICRO -Dworkers=1 -Dregion=us-east-2 -Denvironment=Dev -Dcloudhub.application.name=simi-cicd-poc -Dmule.env=dev
+      run: mvn clean deploy -DmuleDeploy -s settings.xml -DworkerType=MICRO -Dworkers=1 -Dregion=us-east-2 -Denvironment=Prod -Dcloudhub.application.name=simi-cicd-poc -Dmule.env=prod
